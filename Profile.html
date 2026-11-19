@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f0f4f2;
+      color: #222;
+    }
+    nav {
+      background-color: #2f6f4f;
+      padding: 1rem 2rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-right: 1.5rem;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #cfe4d7;
+      flex-shrink: 0;
+    }
+    h1 {
+      color: #1f4e3d;
+      margin: 0;
+    }
+    .role {
+      color: #5a5a5a;
+      margin: 0.2rem 0 0;
+    }
+    h2 {
+      color: #2f6f4f;
+      margin-top: 1.5rem;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 0.4rem;
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .info-box {
+      background-color: #f0f4f2;
+      padding: 0.8rem 1rem;
+      border-radius: 6px;
+    }
+    .info-box strong {
+      display: block;
+      color: #1f4e3d;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+    }
+    .tags {
+      margin-top: 0.5rem;
+    }
+    .tag {
+      display: inline-block;
+      background-color: #e4efe8;
+      color: #1f4e3d;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      margin: 0.2rem 0.4rem 0.2rem 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="Loading page.html">Home</a>
+    <a href="Profile.html">Profile</a>
+    <a href="myhobbies.html">Hobbies</a>
+    <a href="login.html">Login</a>
+  </nav>
+
+  <div class="container">
+    <div class="profile-header">
+      <img src="c:\Users\Administrator\Downloads\Fallen Angel.jpg" alt="Your photo" class="avatar">
+      <div>
+        <h1>Joshieewakwak</h1>
+        <p class="role">Student &middot; Tao lang</p>
+      </div>
+    </div>
+
+    <p>
+      Hi, im the one who can't be move.
+    </p>
+
+    <h2>Details</h2>
+    <div class="info-grid">
+      <div class="info-box">
+        <strong>Location</strong>
+        Sa bahay
+      </div>
+      <div class="info-box">
+        <strong>Email</strong>
+        Akobudoynyehehe@yahoo.com
+      </div>
+      <div class="info-box">
+        <strong>Status</strong>
+        Nababaliw na sa kanya
+      </div>
+      <div class="info-box">
+        <strong>Joined</strong>
+        500 BC
+      </div>
+    </div>
+
+    <h2>Skills</h2>
+    <div class="tags">
+      <span class="tag">Maglakad</span>
+      <span class="tag">tumakbo?</span>
+      <span class="tag">Mag code ata??</span>
+      <span class="tag">Magaling mangbaliw</span>
+    </div>
+  </div>
+</body>
+</html>
