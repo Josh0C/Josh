@@ -2,150 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profile Page</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #f4f1fa;
-      color: #222;
-    }
-    nav {
-      background-color: #5b3fa0;
-      padding: 1rem 2rem;
-    }
-    nav .brand {
-      color: white;
-      font-weight: bold;
-      font-size: 1.1rem;
-      margin-right: 2rem;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-right: 1.5rem;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .container {
-      max-width: 700px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .profile-header {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .avatar {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #ddd2f0;
-      flex-shrink: 0;
-    }
-    h1 {
-      color: #3d2a73;
-      margin: 0;
-    }
-    .role {
-      color: #5a5a5a;
-      margin: 0.2rem 0 0;
-    }
-    h2 {
-      color: #5b3fa0;
-      margin-top: 1.5rem;
-      border-bottom: 1px solid #e0e0e0;
-      padding-bottom: 0.4rem;
-    }
-    .info-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .info-box {
-      background-color: #f4f1fa;
-      padding: 0.8rem 1rem;
-      border-radius: 6px;
-    }
-    .info-box strong {
-      display: block;
-      color: #3d2a73;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      margin-bottom: 0.2rem;
-    }
-    .tags {
-      margin-top: 0.5rem;
-    }
-    .tag {
-      display: inline-block;
-      background-color: #ece6f7;
-      color: #3d2a73;
-      padding: 0.3rem 0.8rem;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      margin: 0.2rem 0.4rem 0.2rem 0;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <nav>
-    <span class="brand">NYENYE</span>
+    <span class="brand">♥ LOVE LOVE</span>
     <a href="Loading page.html">Home</a>
-    <a href="Profile.html">Profile</a>
-    <a href="myhobbies.html">Hobbies</a>
-    <a href="login.html">Login</a>
+    <a href="Profile.html" class="active">Profile</a>
+    <a href="my hobbies.html">Hobbies</a>
+    <a href="login.html" id="authLink">Login</a>
   </nav>
 
-  <div class="container">
-    <div class="profile-header">
-      <img src="c:\Users\Administrator\Downloads\Fallen Angel.jpg" alt="Your photo" class="avatar">
+  <main>
+    <div class="box">
+      <div class="head">
+  
+        <div>
+          <h1>Joshieewakwak</h1>
+          <p class="role">Student &middot; Tao lang</p>
+        </div>
+      </div>
+
+      <p>Hi, im the one who can't be move.</p>
+
+      <button class="like" onclick="this.textContent='♥ Liked'">♥ Send a like</button>
+
+      <h2>Details</h2>
+      <div class="grid">
+        <div class="info"><strong>Location</strong>Sa bahay</div>
+        <div class="info"><strong>Email</strong>Akobudoynyehehe@yahoo.com</div>
+        <div class="info"><strong>Status</strong>Nababaliw na sa kanya</div>
+        <div class="info"><strong>Joined</strong>500 BC</div>
+      </div>
+
+      <h2>Skills</h2>
       <div>
-        <h1>Joshieewakwak</h1>
-        <p class="role">Student &middot; Tao lang</p>
+        <span class="tag">Maglakad</span>
+        <span class="tag">tumakbo?</span>
+        <span class="tag">Mag code ata??</span>
+        <span class="tag">Magaling mangbaliw</span>
       </div>
-    </div>
 
-    <p>
-      Hi, im the one who can't be move.
-    </p>
-
-    <h2>Details</h2>
-    <div class="info-grid">
-      <div class="info-box">
-        <strong>Location</strong>
-        Sa bahay
-      </div>
-      <div class="info-box">
-        <strong>Email</strong>
-        Akobudoynyehehe@yahoo.com
-      </div>
-      <div class="info-box">
-        <strong>Status</strong>
-        Nababaliw na sa kanya
-      </div>
-      <div class="info-box">
-        <strong>Joined</strong>
-        500 BC
-      </div>
+      <a href="my%20hobbies.html" class="next">See my hobbies &rarr;</a>
     </div>
+  </main>
 
-    <h2>Skills</h2>
-    <div class="tags">
-      <span class="tag">Maglakad</span>
-      <span class="tag">tumakbo?</span>
-      <span class="tag">Mag code ata??</span>
-      <span class="tag">Magaling mangbaliw</span>
-    </div>
-  </div>
+  <footer>&copy; 2026 LOVE LOVE</footer>
+
+  <script>
+    var authLink = document.getElementById('authLink');
+    var user = sessionStorage.getItem('user');
+    if (user) {
+      authLink.textContent = 'Logout';
+      authLink.href = '#';
+      authLink.onclick = function () {
+        sessionStorage.removeItem('user');
+        window.location.href = 'login.html';
+      };
+    }
+  </script>
 </body>
 </html>

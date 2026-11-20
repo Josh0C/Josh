@@ -2,93 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hobbies Page</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #f4f1fa;
-      color: #222;
-    }
-    nav {
-      background-color: #5b3fa0;
-      padding: 1rem 2rem;
-    }
-    nav .brand {
-      color: white;
-      font-weight: bold;
-      font-size: 1.1rem;
-      margin-right: 2rem;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-right: 1.5rem;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .container {
-      max-width: 700px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .banner {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
-    }
-    h1 {
-      color: #3d2a73;
-      margin: 0;
-    }
-    h2 {
-      color: #5b3fa0;
-      margin-top: 1.5rem;
-      border-bottom: 1px solid #e0e0e0;
-      padding-bottom: 0.4rem;
-    }
-    ul, ol {
-      padding-left: 1.5rem;
-    }
-    li {
-      margin-bottom: 0.4rem;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <nav>
-    <span class="brand">NYENYE</span>
+    <span class="brand">♥ LOVE LOVE</span>
     <a href="Loading page.html">Home</a>
     <a href="Profile.html">Profile</a>
-    <a href="my hobbies.html">Hobbies</a>
-    <a href="login.html">Login</a>
+    <a href="my hobbies.html" class="active">Hobbies</a>
+    <a href="login.html" id="authLink">Login</a>
   </nav>
 
-  <div class="container">
+  <main>
+    <div class="box">
+      <h1>Hobbies</h1>
+      <p>Things I enjoy doing.</p>
 
-    <h1>Hobbies</h1>
-    <p>Things I enjoy doing.</p>
+      <div class="cols">
+        <div class="col">
+          <h2>Unordered list</h2>
+          <ul>
+            <li>Add your hobby</li>
+            <li>Add your hobby</li>
+            <li>Add your hobby</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h2>Numbered list</h2>
+          <ol>
+            <li>Add your hobby</li>
+            <li>Add your hobby</li>
+            <li>Add your hobby</li>
+          </ol>
+        </div>
+      </div>
 
-    <h2>Unordered list</h2>
-    <ul>
-      <li>.</li>
-      <li>.</li>
-      <li>.</li>
-    </ul>
+      <a href="Profile.html" class="next">&larr; Back to profile</a>
+    </div>
+  </main>
 
-    <h2>Numbered list</h2>
-    <ol>
-      <li>.</li>
-      <li>.</li>
-      <li>.</li>
-    </ol>
-  </div>
+  <footer>&copy; 2026 LOVE LOVE</footer>
+
+  <script>
+    var authLink = document.getElementById('authLink');
+    var user = sessionStorage.getItem('user');
+    if (user) {
+      authLink.textContent = 'Logout';
+      authLink.href = '#';
+      authLink.onclick = function () {
+        sessionStorage.removeItem('user');
+        window.location.href = 'login.html';
+      };
+    }
+  </script>
 </body>
 </html>

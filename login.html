@@ -2,125 +2,63 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #f4f1fa;
-      color: #222;
-    }
-    nav {
-      background-color: #5b3fa0;
-      padding: 1rem 2rem;
-    }
-    nav .brand {
-      color: white;
-      font-weight: bold;
-      font-size: 1.1rem;
-      margin-right: 2rem;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-right: 1.5rem;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .container {
-      max-width: 400px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    h1 {
-      color: #3d2a73;
-    }
-    label {
-      font-weight: bold;
-      display: block;
-      margin-top: 1rem;
-    }
-    input {
-      width: 100%;
-      padding: 0.5rem;
-      margin-top: 0.3rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-    }
-    button {
-      margin-top: 1.5rem;
-      background-color: #5b3fa0;
-      color: white;
-      padding: 0.6rem 1.2rem;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      width: 100%;
-    }
-    button:hover {
-      background-color: #4a3283;
-    }
-    .error {
-      color: #b3261e;
-      margin-top: 1rem;
-      display: none;
-    }
-    .hint {
-      color: #777;
-      font-size: 0.85rem;
-      margin-top: 1rem;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <nav>
-    <span class="brand">NYENYE</span>
+    <span class="brand">♥ LOVE LOVE</span>
     <a href="Loading page.html">Home</a>
     <a href="Profile.html">Profile</a>
     <a href="my hobbies.html">Hobbies</a>
-    <a href="login.html">Login</a>
+    <a href="login.html" class="active" id="authLink">Login</a>
   </nav>
 
-  <div class="container">
-    <h1>Login</h1>
-    <form id="loginForm">
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username">
+  <main>
+    <div class="box narrow">
+      <h1>Login</h1>
+      <form id="loginForm">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username">
 
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password">
 
-      <button type="submit">Log in</button>
-      <p class="error" id="errorMsg">Incorrect username or password.</p>
-    </form>
-    <p class="hint">Hint: username <strong>meandyou</strong>, password <strong>1234</strong></p>
-  </div>
+        <button type="submit">Log in</button>
+        <p class="error" id="errorMsg">Incorrect username or password.</p>
+      </form>
+      <p class="hint">Hint: username <strong>meandyou</strong>, password <strong>1234</strong></p>
+    </div>
+  </main>
+
+    <footer>&copy; 2026 NYENYE</footer>
 
   <script>
-    const form = document.getElementById('loginForm');
-    const errorMsg = document.getElementById('errorMsg');
+    var authLink = document.getElementById('authLink');
+    var user = sessionStorage.getItem('user');
+    if (user) {
+      authLink.textContent = 'Logout';
+      authLink.href = '#';
+      authLink.onclick = function () {
+        sessionStorage.removeItem('user');
+        window.location.href = 'login.html';
+      };
+    }
 
     // Change these to whatever username/password you want
-    const validUsername = "meandyou";
-    const validPassword = "1234";
+    var validUsername = "meandyou";
+    var validPassword = "1234";
 
-    form.addEventListener('submit', function (e) {
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
       e.preventDefault();
-
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
       if (username === validUsername && password === validPassword) {
-        window.location.href = "profile.html";
+        sessionStorage.setItem('user', username);
+        window.location.href = 'Profile.html';
       } else {
-        errorMsg.style.display = "block";
+        document.getElementById('errorMsg').style.display = 'block';
       }
     });
   </script>

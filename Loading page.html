@@ -2,82 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Landing Page</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #f4f1fa;
-      color: #222;
-    }
-    nav {
-      background-color: #5b3fa0;
-      padding: 1rem 2rem;
-    }
-    nav .brand {
-      color: white;
-      font-weight: bold;
-      font-size: 1.1rem;
-      margin-right: 2rem;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-right: 1.5rem;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .container {
-      max-width: 700px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    h1 {
-      color: #3d2a73;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    ul li {
-      margin-bottom: 0.75rem;
-    }
-    ul li a {
-      display: inline-block;
-      background-color: #ece6f7;
-      color: #3d2a73;
-      padding: 0.6rem 1rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    ul li a:hover {
-      background-color: #ddd2f0;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <nav>
-    <span class="brand">NYENYE</span>
-    <a href="Loading page.html">Home</a>
+    <span class="brand">♥ LOVE LOVE</span>
+    <a href="Loading page.html" class="active">Home</a>
     <a href="Profile.html">Profile</a>
     <a href="my hobbies.html">Hobbies</a>
-    <a href="login.html">Login</a>
+    <a href="login.html" id="authLink">Login</a>
   </nav>
 
-  <div class="container">
-    <h1>NYENYE</h1>
-    <p>My Hobbies!!</p>
+  <main>
+    <section class="hero">
+      <h1>NYENYE</h1>
+      <p id="welcome">My Hobbies!!</p>
+      <a href="login.html" class="btn">Join now</a>
+      <a href="Profile.html" class="btn">View my profile</a>
+    </section>
 
-    <ul>
-      <li><a href="Profile.html">Profile</a></li>
-      <li><a href="my hobbies.html">Hobbies</a></li>
-    </ul>
-  </div>
+    <div class="wrap">
+      <h2 class="center">How it works</h2>
+      <div class="cards">
+        <div class="card"><h3>1. Create a profile</h3><p>Add your photo and tell people a little about yourself.</p></div>
+        <div class="card"><h3>2. Share your hobbies</h3><p>Show what you love so others can find common ground.</p></div>
+        <div class="card"><h3>3. Start chatting</h3><p>Send a like and see where the conversation goes.</p></div>
+      </div>
+
+      <h2 class="center">Featured members</h2>
+      <div class="cards">
+        <div class="card member"><div class="pic">M</div><h3>Maya, 25</h3><p>Loves hiking and photography.</p><a href="Profile.html">View profile</a></div>
+        <div class="card member"><div class="pic">L</div><h3>Liam, 27</h3><p>Plays guitar and loves to cook.</p><a href="Profile.html">View profile</a></div>
+        <div class="card member"><div class="pic">S</div><h3>Sofia, 24</h3><p>Bookworm who loves to travel.</p><a href="Profile.html">View profile</a></div>
+      </div>
+    </div>
+  </main>
+
+  <footer>&copy; 2026 LOVE LOVE</footer>
+
+  <script>
+    var authLink = document.getElementById('authLink');
+    var user = sessionStorage.getItem('user');
+    if (user) {
+      authLink.textContent = 'Logout';
+      authLink.href = '#';
+      authLink.onclick = function () {
+        sessionStorage.removeItem('user');
+        window.location.href = 'login.html';
+      };
+      var w = document.getElementById('welcome');
+      if (w) w.textContent = 'Welcome back, ' + user + '!';
+    }
+  </script>
 </body>
 </html>
